@@ -171,8 +171,8 @@
                             sliderButton = mapButtons[i];
                             sliderButton.setAttribute('tabindex', '0');
                             sliderButton.setAttribute('role', 'slider');
-                            sliderButton.setAttribute('aria-valuemax', '100');
-                            sliderButton.setAttribute('aria-valuemin', '0');
+                            sliderButton.setAttribute('aria-valuemax', '188');
+                            sliderButton.setAttribute('aria-valuemin', '20');
                             sliderButton.setAttribute('aria-orientation', 'vertical');
                             sliderMin = 20;
                             sliderMax = 188;
@@ -181,6 +181,7 @@
                             currentSliderSlot = 10 -
                                 Math.floor((((sliderCurrent) / (sliderMax - sliderMin)) * 100) / 10 - 0.5);
                             sliderButton.setAttribute('aria-valuenow', (currentSliderSlot - 1) * 10);
+                            sliderButton.setAttribute('aria-valuetext', "zoom level: "+((currentSliderSlot - 1) * 10));
 
                             // Now set keyboard handlers to maintain state and value as user operates it
                             google.maps.event.addDomListener(sliderButton, 'keydown', function (e) {
@@ -212,6 +213,7 @@
                                         false, false, false, false, 0, null);
                                     sliderRange.dispatchEvent(evt);
                                     sliderButton.setAttribute('aria-valuenow', (currentSliderSlot - 1) * 10);
+                                    sliderButton.setAttribute('aria-valuetext', "zoom level: "+((currentSliderSlot - 1) * 10));
                                 }
                             });
                         } else if (title === "C2Z") {
